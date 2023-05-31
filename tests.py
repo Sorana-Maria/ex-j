@@ -3,6 +3,9 @@ import numpy as np
 import matplotlib.pylab as plt
 import unittest
 
+from apicall import open_meteo
+from plot import plot_data
+
 class TestMeteoAPI(unittest.TestCase):
     def test_open_meteo(self):
         # Test with valid inputs
