@@ -1,3 +1,5 @@
+import numpy as np
+import matplotlib.pylab as plt
 def plot_data(data):
     """Plot the data we received from the meteo API request"""
     # time = data.get('hourly', {}).get('time')

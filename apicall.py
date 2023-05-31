@@ -1,3 +1,4 @@
+import requests
 def open_meteo(latitude, longitude):
     """Create the meteo API request and return it if we have successful status code"""
     try:
