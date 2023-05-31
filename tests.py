@@ -2,10 +2,36 @@ import requests
 import numpy as np
 import matplotlib.pylab as plt
 import unittest
+import pytest
 
 from apicall import open_meteo
 from plot import plot_data
 
+def test_open_meteo_valid_input():
+    # test with valid input (Berlin, Germany)
+    data = open_meteo(52.52, 13.40)
+
+    assert data is not None
+    assert len(data['hourly']['temperature_2m']) == 24
+
+def test_open_meteo_invalid_input():
+    # test with invalid input (string instead of float)
+    data = open_meteo("not a float", "not a float")
+
+    assert data is None
+
+def test_plot_data():
+    # test with sample data
+    sample_data = {'hourly': {'temperature_2m': [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14]}}
+
+    # suppress the plot window from showing up
+    #plt.show = lambda: None
+
+    # calling the function should not raise any exceptions
+    plot_data(sample_data)
+
+pytest
+'''
 class TestMeteoAPI(unittest.TestCase):
     def test_open_meteo(self):
         # Test with valid inputs
@@ -29,3 +55,4 @@ class TestMeteoAPI(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+'''
