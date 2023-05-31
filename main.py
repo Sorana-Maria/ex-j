@@ -1,3 +1,6 @@
+from apicall import open_meteo
+from plot import plot_data
+
 if __name__ == "__main__":
     # get input data
     lat = input("Enter latitude")
@@ -7,3 +10,4 @@ if __name__ == "__main__":
     meteo_data = open_meteo(latitude=lat, longitude=lon)
 
     plot_data(meteo_data)
+    
